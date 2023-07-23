@@ -1,0 +1,9 @@
+LEMON_VERSION = "3.42.0"
+
+module(
+    name = "lemon",
+    version = LEMON_VERSION,
+    compatibility_level = 3,
+)
+
+bazel_dep(name = "platforms", version = "0.0.6")

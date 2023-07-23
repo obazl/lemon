@@ -1,3 +1,9 @@
+.bazel
+bazel-*
+*.history.txt
+log.*
+*.log
+
 # Prerequisites
 *.d
 

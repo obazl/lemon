@@ -1,0 +1,32 @@
+exports_files(["lempar.c"])
+
+COPTS = [
+    "-x", "c",
+    "-Wall",
+    "-Wextra",
+    # GCC:
+    "-Werror", # turn all warnings into errors
+    "-Wfatal-errors", # stop on first error
+] + select({
+    "@platforms//os:macos": [
+        "-std=c11",
+        "-Werror=pedantic", # not needed with -Werror?
+        "-Wpedantic", # same as -pedantic, strict ISO C and ISO C++ warnings
+        "-pedantic-errors",
+        "-Wno-gnu-statement-expression",
+        "-Wno-strict-prototypes"
+    ],
+    "@platforms//os:linux": [
+        "-std=gnu11",
+        "-fPIC",
+        # "-Wl,--no-undefined",
+    ],
+    "//conditions:default": ["-std=c11"],
+})
+
+cc_binary(
+    name  = "lemon",
+    srcs  = ["lemon.c"],
+    copts = COPTS,
+    visibility = ["//visibility:public"]
+)
