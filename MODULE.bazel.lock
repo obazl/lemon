@@ -1,11 +1,9 @@
 {
   "lockFileVersion": 1,
-  "moduleFileHash": "97308b87f01765fca0246659137fd28ad523429f243c2502ca69466fc0d480cc",
+  "moduleFileHash": "5faaadda8ea65748dcecc1145e23eaa9817f6eefbbf65786547812a79b30a3e6",
   "flags": {
     "cmdRegistries": [
-      "file:///%workspace%/../../obazl/registry",
-      "https://raw.githubusercontent.com/obazl/registry/main/",
-      "https://bcr.bazel.build"
+      "https://bcr.bazel.build/"
     ],
     "cmdModuleOverrides": {},
     "allowedYankedVersions": [],
@@ -29,7 +27,8 @@
       "deps": {
         "bazel_tools": "bazel_tools@_",
         "local_config_platform": "local_config_platform@_",
-        "platforms": "platforms@0.0.6"
+        "platforms": "platforms@0.0.7",
+        "bazel_skylib": "bazel_skylib@1.4.2"
       }
     },
     "bazel_tools@_": {
@@ -157,10 +156,10 @@
         "local_config_platform": "local_config_platform@_",
         "rules_cc": "rules_cc@0.0.2",
         "rules_java": "rules_java@5.5.0",
-        "rules_license": "rules_license@0.0.3",
+        "rules_license": "rules_license@0.0.7",
         "rules_proto": "rules_proto@4.0.0",
         "rules_python": "rules_python@0.4.0",
-        "platforms": "platforms@0.0.6",
+        "platforms": "platforms@0.0.7",
         "com_google_protobuf": "protobuf@3.19.6",
         "zlib": "zlib@1.2.13"
       }
@@ -175,25 +174,48 @@
       "extensionUsages": [],
       "deps": {
         "bazel_tools": "bazel_tools@_",
-        "platforms": "platforms@0.0.6"
+        "platforms": "platforms@0.0.7"
       }
     },
-    "platforms@0.0.6": {
+    "platforms@0.0.7": {
       "name": "platforms",
-      "version": "0.0.6",
-      "key": "platforms@0.0.6",
+      "version": "0.0.7",
+      "key": "platforms@0.0.7",
       "repoName": "platforms",
       "executionPlatformsToRegister": [],
       "toolchainsToRegister": [],
       "extensionUsages": [],
       "deps": {
         "bazel_tools": "bazel_tools@_",
-        "local_config_platform": "local_config_platform@_"
+        "local_config_platform": "local_config_platform@_",
+        "rules_license": "rules_license@0.0.7"
       },
       "repoSpec": {
         "bzlFile": "@bazel_tools//tools/build_defs/repo:http.bzl",
         "ruleClassName": "http_archive",
-        "attributes": {"name":"--platforms","urls":["--https://github.com/bazelbuild/platforms/releases/download/0.0.6/platforms-0.0.6.tar.gz"],"integrity":"--sha256-Uwj8HYhlQGpJQnuiSpq1MIfxf1Jmp6q7/CiCPzkW4co=","strip_prefix":"--","remote_patches":{"--https://bcr.bazel.build/modules/platforms/0.0.6/patches/module_dot_bazel.patch":"--sha256-/ITFV+xsibQyr8dnuvUILvdoOigF6XuiyZHN+Gf7UM8="},"remote_patch_strip":0}
+        "attributes": {"name":"--platforms","urls":["--https://github.com/bazelbuild/platforms/releases/download/0.0.7/platforms-0.0.7.tar.gz"],"integrity":"--sha256-OlYcmee9vpFzqmU/1Xn+hJ8djWc5V4CrR3Cx84FDHVE=","strip_prefix":"--","remote_patches":{},"remote_patch_strip":0}
+      }
+    },
+    "bazel_skylib@1.4.2": {
+      "name": "bazel_skylib",
+      "version": "1.4.2",
+      "key": "bazel_skylib@1.4.2",
+      "repoName": "bazel_skylib",
+      "executionPlatformsToRegister": [],
+      "toolchainsToRegister": [
+        "//toolchains/unittest:cmd_toolchain",
+        "//toolchains/unittest:bash_toolchain"
+      ],
+      "extensionUsages": [],
+      "deps": {
+        "bazel_tools": "bazel_tools@_",
+        "local_config_platform": "local_config_platform@_",
+        "platforms": "platforms@0.0.7"
+      },
+      "repoSpec": {
+        "bzlFile": "@bazel_tools//tools/build_defs/repo:http.bzl",
+        "ruleClassName": "http_archive",
+        "attributes": {"name":"--bazel_skylib~1.4.2","urls":["--https://github.com/bazelbuild/bazel-skylib/releases/download/1.4.2/bazel-skylib-1.4.2.tar.gz"],"integrity":"--sha256-Zv/ZMVZlv6r8lrUiePV8fi3Qn17eJ56m05sr5HHn46o=","strip_prefix":"--","remote_patches":{},"remote_patch_strip":0}
       }
     },
     "rules_cc@0.0.2": {
@@ -227,8 +249,8 @@
       "deps": {
         "bazel_tools": "bazel_tools@_",
         "local_config_platform": "local_config_platform@_",
-        "bazel_skylib": "bazel_skylib@1.2.0",
-        "platforms": "platforms@0.0.6"
+        "bazel_skylib": "bazel_skylib@1.4.2",
+        "platforms": "platforms@0.0.7"
       },
       "repoSpec": {
         "bzlFile": "@bazel_tools//tools/build_defs/repo:http.bzl",
@@ -303,9 +325,9 @@
       "deps": {
         "bazel_tools": "bazel_tools@_",
         "local_config_platform": "local_config_platform@_",
-        "platforms": "platforms@0.0.6",
+        "platforms": "platforms@0.0.7",
         "rules_cc": "rules_cc@0.0.2",
-        "bazel_skylib": "bazel_skylib@1.2.0",
+        "bazel_skylib": "bazel_skylib@1.4.2",
         "rules_proto": "rules_proto@4.0.0"
       },
       "repoSpec": {
@@ -314,10 +336,10 @@
         "attributes": {"name":"--rules_java~5.5.0","urls":["--https://github.com/bazelbuild/rules_java/releases/download/5.5.0/rules_java-5.5.0.tar.gz"],"integrity":"--sha256-vPq/tAfLDIggFBMQ+qEC9/uSzIBrDw4mpiUZYQGwtX4=","strip_prefix":"--","remote_patches":{},"remote_patch_strip":0}
       }
     },
-    "rules_license@0.0.3": {
+    "rules_license@0.0.7": {
       "name": "rules_license",
-      "version": "0.0.3",
-      "key": "rules_license@0.0.3",
+      "version": "0.0.7",
+      "key": "rules_license@0.0.7",
       "repoName": "rules_license",
       "executionPlatformsToRegister": [],
       "toolchainsToRegister": [],
@@ -329,7 +351,7 @@
       "repoSpec": {
         "bzlFile": "@bazel_tools//tools/build_defs/repo:http.bzl",
         "ruleClassName": "http_archive",
-        "attributes": {"name":"--rules_license~0.0.3","urls":["--https://github.com/bazelbuild/rules_license/releases/download/0.0.3/rules_license-0.0.3.tar.gz"],"integrity":"--sha256-AMzA3yExLBJ6xLEogKsPmibBz/mUQtxsWjMXUDYN48M=","strip_prefix":"--","remote_patches":{"--https://bcr.bazel.build/modules/rules_license/0.0.3/patches/module_dot_bazel.patch":"--sha256-yim5cwFqlS1F1UomygmIEM/UQhrkQZyYrwo48WFt4gE="},"remote_patch_strip":0}
+        "attributes": {"name":"--rules_license~0.0.7","urls":["--https://github.com/bazelbuild/rules_license/releases/download/0.0.7/rules_license-0.0.7.tar.gz"],"integrity":"--sha256-RTHezLkTY5ww5cdRKgVNXYdWmNrrddjPkPKEN1/nw2A=","strip_prefix":"--","remote_patches":{},"remote_patch_strip":0}
       }
     },
     "rules_proto@4.0.0": {
@@ -343,7 +365,7 @@
       "deps": {
         "bazel_tools": "bazel_tools@_",
         "local_config_platform": "local_config_platform@_",
-        "bazel_skylib": "bazel_skylib@1.2.0",
+        "bazel_skylib": "bazel_skylib@1.4.2",
         "rules_cc": "rules_cc@0.0.2"
       },
       "repoSpec": {
@@ -406,7 +428,7 @@
       "deps": {
         "bazel_tools": "bazel_tools@_",
         "local_config_platform": "local_config_platform@_",
-        "bazel_skylib": "bazel_skylib@1.2.0",
+        "bazel_skylib": "bazel_skylib@1.4.2",
         "zlib": "zlib@1.2.13",
         "rules_python": "rules_python@0.4.0",
         "rules_cc": "rules_cc@0.0.2",
@@ -435,28 +457,6 @@
         "bzlFile": "@bazel_tools//tools/build_defs/repo:http.bzl",
         "ruleClassName": "http_archive",
         "attributes": {"name":"--zlib~1.2.13","urls":["--https://github.com/madler/zlib/archive/refs/tags/v1.2.13.zip"],"integrity":"--sha256-woVpUbvzDjCGGs43ZVldhroT8s8BJ52QH2xiJYxX9P8=","strip_prefix":"--zlib-1.2.13","remote_patches":{"--https://bcr.bazel.build/modules/zlib/1.2.13/patches/add_build_file.patch":"--sha256-Z2ig1F01/dfdG63H+GwYRMcGbW/zAGIUWnKKrwKSEaQ=","--https://bcr.bazel.build/modules/zlib/1.2.13/patches/module_dot_bazel.patch":"--sha256-Nc7xP02Dl6yHQvkiZWSQnlnw1T277yS4cJxxONWJ/Ic="},"remote_patch_strip":0}
-      }
-    },
-    "bazel_skylib@1.2.0": {
-      "name": "bazel_skylib",
-      "version": "1.2.0",
-      "key": "bazel_skylib@1.2.0",
-      "repoName": "bazel_skylib",
-      "executionPlatformsToRegister": [],
-      "toolchainsToRegister": [
-        "@bazel_skylib//toolchains/unittest:cmd_toolchain",
-        "@bazel_skylib//toolchains/unittest:bash_toolchain"
-      ],
-      "extensionUsages": [],
-      "deps": {
-        "bazel_tools": "bazel_tools@_",
-        "local_config_platform": "local_config_platform@_",
-        "platforms": "platforms@0.0.6"
-      },
-      "repoSpec": {
-        "bzlFile": "@bazel_tools//tools/build_defs/repo:http.bzl",
-        "ruleClassName": "http_archive",
-        "attributes": {"name":"--bazel_skylib~1.2.0","urls":["--https://github.com/bazelbuild/bazel-skylib/releases/download/1.2.0/bazel-skylib-1.2.0.tar.gz"],"integrity":"--sha256-r4eVmv5Jfcjf1MbLZuEnnLmMzIQoRhnr/sJ9nAmpA94=","strip_prefix":"--","remote_patches":{"--https://bcr.bazel.build/modules/bazel_skylib/1.2.0/patches/module_dot_bazel.patch":"--sha256-UI21Duc0HToW6LgvnZ/vaXW50/tXRsEox/9yiuPD6BI="},"remote_patch_strip":0}
       }
     }
   },

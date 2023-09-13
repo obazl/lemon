@@ -1,8 +1,6 @@
 .bazel
 bazel-*
-*.history.txt
-log.*
-*.log
+*.tgz
 
 # Prerequisites
 *.d
