@@ -54,11 +54,11 @@ lemon = rule(
         ),
         "template": attr.label(
             allow_single_file =  True,
-            default = ":lempar.c"
+            default = "//bin:lempar.c"
         ),
         "_tool": attr.label(
             allow_single_file = True,
-            default = ":lemon",
+            default = "//bin:lemon",
             executable = True,
             cfg = "host"
         )

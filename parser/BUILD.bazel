@@ -1,0 +1,47 @@
+load("@bazel_skylib//rules:common_settings.bzl",
+     "bool_flag", "string_flag")
+
+################################################################
+## enable parser debugging: --//bootstrap:yydebug
+bool_flag(name = "debug", build_setting_default = False)
+config_setting(name = "debug?",
+               flag_values = {":debug": "True"})
+
+bool_flag(name = "trace", build_setting_default = False)
+config_setting(name = "trace?",
+               flag_values = {":trace": "True"})
+
+bool_flag(name = "exit-on-error", build_setting_default = 0)
+config_setting(name = "exit-on-error?",
+               flag_values = {":exit-on-error": "True"})
+
+## control lemon's %if, %ifdef, etc.
+
+## these are all opam-specific
+string_flag(name = "yydebug-rules", build_setting_default = "")
+config_setting(name = "yydebug-fpf",
+               flag_values = {":yydebug-rules": "fpf"})
+config_setting(name = "yydebug-fvf",
+               flag_values = {":yydebug-rules": "fvf"})
+config_setting(name = "yydebug-filter",
+               flag_values = {":yydebug-rules": "filter"})
+config_setting(name = "yydebug-build-filter",
+               flag_values = {":yydebug-rules": "build-filter"})
+
+## enable lexer debugging: --//bootstrap:lexdebug
+bool_flag(name = "lexdebug", build_setting_default = 0)
+config_setting(name = "lexdebug-enabled", flag_values = {":lexdebug": "True"})
+config_setting(name = "lexdebug-disabled", flag_values = {":lexdebug": "False"})
+
+string_flag(name = "lexdebug-rules", build_setting_default = "")
+config_setting(name = "lexdebug-version",
+               flag_values = {":lexdebug-rules": "version"})
+config_setting(name = "lexdebug-fpf",
+               flag_values = {":lexdebug-rules": "fpf"})
+config_setting(name = "lexdebug-fvf",
+               flag_values = {":lexdebug-rules": "fvf"})
+config_setting(name = "lexdebug-filter",
+               flag_values = {":lexdebug-rules": "filter"})
+config_setting(name = "lexdebug-build-filter",
+               flag_values = {":lexdebug-rules": "build-filter"})
+

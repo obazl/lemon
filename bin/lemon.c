@@ -13,6 +13,8 @@
 #include <stdlib.h>
 #include <assert.h>
 
+#include <libgen.h>  /* obazl, for basename */
+
 #define ISSPACE(X) isspace((unsigned char)(X))
 #define ISDIGIT(X) isdigit((unsigned char)(X))
 #define ISALNUM(X) isalnum((unsigned char)(X))
@@ -4414,7 +4416,9 @@ void ReportTable(
   tplt_print(out,lemp,lemp->include,&lineno);
   if( mhflag ){
     char *incName = file_makename(lemp, ".h");
-    fprintf(out,"#include \"%s\"\n", incName); lineno++;
+    /* fprintf(out,"#include \"%s\"\n", incName); lineno++; */
+    char *bname = basename(incName); /* obazl */
+    fprintf(out,"#include \"%s\"\n", bname); lineno++; /* obazl */
     free(incName);
   }
   tplt_xfer(lemp->name,in,out,&lineno);

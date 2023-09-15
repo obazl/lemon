@@ -1,2 +1,0 @@
-common --enable_bzlmod
-try-import .config/user.bazelrc
